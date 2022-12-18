@@ -6,7 +6,7 @@ export const getStatus = (req, res) => {
   const redis = redisClient.isAlive();
   const db = dbClient.isAlive();
   res.sendStatus(200);
-  return res.send({ redis, db });
+  res.send({ redis, db });
 };
 
 export const getStats = async (req, res) => {
@@ -14,5 +14,5 @@ export const getStats = async (req, res) => {
   const usersCount = await dbClient.nbUsers();
   const filesCount = await dbClient.nbFiles();
   res.sendStatus(200);
-  return res.send({ usersCount, filesCount });
+  res.send({ usersCount, filesCount });
 };
