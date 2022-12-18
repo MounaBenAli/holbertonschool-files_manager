@@ -13,5 +13,6 @@ export const getStats = async (req, res) => {
   // GET /stats
   const usersCount = await dbClient.nbUsers();
   const filesCount = await dbClient.nbFiles();
-  return res.send(`{ "users": ${usersCount}, "files": ${filesCount} }`);
+
+  return res.send({ usersCount, filesCount });
 };
